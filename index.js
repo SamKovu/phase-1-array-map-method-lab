@@ -12,5 +12,35 @@ const tutorials = [
 ];
 
 const titleCased = () => {
-  return tutorials
+
+  const newTut= tutorials.map((student)=>{
+    return camelCase(student);
+  })
+ return newTut;
 }
+
+
+function camelCase(stringX){
+  let string=stringX.trimStart();
+  let indexArray=[0,];
+   let newString=string[0].toUpperCase();
+  for (let i=1;i<string.length;i++){
+    if(string[i]===" "){
+      indexArray.push(i+1);
+      newString=newString.concat(string[i],string[i+1].toUpperCase())
+      i++;
+    }
+    else{
+      newString=newString.concat(string[i]);
+    }
+    }
+
+return newString;
+}
+
+let test=" implementing blockchain web api";
+
+
+console.log(camelCase(test));
+console.log(titleCased());
+
